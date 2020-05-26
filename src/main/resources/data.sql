@@ -19,3 +19,6 @@ INSERT INTO products(product_id, name, price, type) VALUES
 (18, 'Facial cream', 7, 'BEAUTY'),
 (19, 'Sunscreen', 15, 'BEAUTY'),
 (20, 'Body luminizer', 20, 'BEAUTY');
+
+INSERT INTO users(user_id, active, first_name, last_name, password, username) VALUES
+(1, true, 'Patryk', 'Krawczyk', 'pass', 'PatrykK');

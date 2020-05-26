@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title th:text="#{registration.page.title}"></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+<div th:include="nav.html"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-3">.
+            <h1 th:text="#{registration.page.desc}"></h1>
+            <form th:action="@{/register}" th:object="${userModel}" method="post"   >
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" th:field="*{username}" class="form-control" id="username"
+                           placeholder="Enter username" name="username" minlength="2" maxlength="30" required>
+                </div>
+                <ul>
+                    <li th:each="err : ${#fields.errors('username')}" th:text="${err}"></li>
+                </ul>
+                <div class="form-group">
+                    <label for="firstName">First name</label>
+                    <input type="text" th:field="*{firstName}" class="form-control" id="firstName"
+                           placeholder="Enter first name" minlength="2" maxlength="30" required>
+                </div>
+                <ul>
+                    <li th:each="err : ${#fields.errors('firstName')}" th:text="${err}"></li>
+                </ul>
+                <div class="form-group">
+                    <label for="lastName">Last name</label>
+                    <input type="text" th:field="*{lastName}" class="form-control" id="lastName"
+                           placeholder="Enter last name" minlength="2" maxlength="30" required>
+                </div>
+                <ul>
+                    <li th:each="err : ${#fields.errors('firstName')}" th:text="${err}"></li>
+                </ul>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" th:field="*{password}" class="form-control" id="password"
+                           placeholder="Enter password" minlength="2" maxlength="50" required>
+                </div>
+                <ul>
+                    <li th:each="err : ${#fields.errors('password')}" th:text="${err}"></li>
+                </ul>
+                <button class="btn btn-primary" type="submit">Zarejestruj</button>
+                <sec:csrfInput/>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+</html>
