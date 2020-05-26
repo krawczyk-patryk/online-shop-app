@@ -26,7 +26,7 @@ public class UniqueUsernameValidator implements Validator {
         String username = userDto.getUsername();
         boolean isUsernameExist = userService.checkIsUserExist(username);
         if (isUsernameExist) {
-            errors.rejectValue("username", "user.registration.validation.message.usernameAlreadyExist");
+            errors.rejectValue("username", "registration.user.validation.message.usernameAlreadyExist");
         }
     }
 }

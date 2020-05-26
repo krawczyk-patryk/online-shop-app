@@ -15,7 +15,7 @@ public class UserConverter implements Function<UserDto, User> {
                 .username(userDto.getUsername())
                 .firstName(userDto.getFirstName())
                 .lastName(userDto.getLastName())
-                .password(userDto.getPassword())
+                .password(userDto.getPassword1())
                 .build();
     }
 }
