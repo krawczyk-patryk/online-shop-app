@@ -2,6 +2,7 @@ package pl.krawczykpatryk.onlineshop.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.krawczykpatryk.onlineshop.converters.ProductConverter;
 import pl.krawczykpatryk.onlineshop.converters.ProductDtoConverter;
 import pl.krawczykpatryk.onlineshop.dtos.ProductDto;
 import pl.krawczykpatryk.onlineshop.exceptions.ProductNotFoundException;
@@ -16,11 +17,14 @@ public class ProductServiceImpl implements ProductService {
 
     private ProductRepository productRepository;
     private ProductDtoConverter productDtoConverter;
+    private ProductConverter productConverter;
 
     @Autowired
-    public ProductServiceImpl(ProductRepository productRepository, ProductDtoConverter productDtoConverter) {
+    public ProductServiceImpl(ProductRepository productRepository, ProductDtoConverter productDtoConverter,
+                              ProductConverter productConverter) {
         this.productRepository = productRepository;
         this.productDtoConverter = productDtoConverter;
+        this.productConverter = productConverter;
     }
 
     @Override
@@ -33,5 +37,16 @@ public class ProductServiceImpl implements ProductService {
     public ProductDto findProductById(Long id) {
         Product product = productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException(id));
         return productDtoConverter.apply(product);
+    }
+
+    @Override
+    public void createProduct(ProductDto productDto) {
+        Product product = productConverter.apply(productDto);
+        productRepository.save(product);
+    }
+
+    @Override
+    public void deleteProduct(Long id) {
+        productRepository.deleteById(id);
     }
 }
