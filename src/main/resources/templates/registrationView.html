@@ -10,46 +10,80 @@
 </head>
 <body>
 <div th:include="nav.html"></div>
+<h1 th:text="#{registration.user.page.description}"></h1>
 <div class="container">
-    <div class="row">
-        <div class="col-md-6 offset-md-3">.
-            <h1 th:text="#{registration.user.page.description}"></h1>
-            <form th:action="@{/register}" th:object="${userModel}" method="post">
-                <div class="form-group">
-                    <label for="username" th:text="#{registration.user.page.username}"></label>
-                    <input type="text" th:field="*{username}" class="form-control" id="username"
-                           name="username">
-                    <p class="small alert alert-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
-                </div>
-                <div class="form-group">
-                    <label for="firstName" th:text="#{registration.user.page.firstname}"></label>
-                    <input type="text" th:field="*{firstName}" class="form-control" id="firstName"
-                           name="firstName">
-                    <p class="small alert alert-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
-                </div>
-                <div class="form-group">
-                    <label for="lastName" th:text="#{registration.user.page.lastname}"></label>
-                    <input type="text" th:field="*{lastName}" class="form-control" id="lastName"
-                           name="lastName">
-                    <p class="small alert alert-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p>
-                </div>
-                <div class="form-group">
-                    <label for="password1" th:text="#{registration.user.page.password}"></label>
-                    <input type="password" th:field="*{password1}" class="form-control" id="password1"
-                           name="password1">
-                    <p class="small alert alert-danger" th:if="${#fields.hasErrors('password1')}" th:errors="*{password1}"></p>
-                </div>
-                <div class="form-group">
-                    <label for="password2" th:text="#{registration.user.page.repeatedpassword}"></label>
-                    <input type="password" th:field="*{password2}" class="form-control" id="password2"
-                           name="password2">
-                    <p class="small alert alert-danger" th:if="${#fields.hasErrors('password2')}" th:errors="*{password2}"></p>
-                </div>
-                <button class="btn btn-primary" type="submit" th:text="#{registration.user.page.register}"></button>
-                <sec:csrfInput/>
-            </form>
+    <form th:action="@{/register}" th:object="${userModel}" method="post">
+        <div class="form-row">
+            <div class="col-md-4">
+                <label for="username" th:text="#{registration.user.page.username}"></label>
+                <input type="text" th:field="*{username}" class="form-control" id="username"
+                       name="username">
+                <p class="small alert alert-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+            </div>
+            <div class="col-md-4">
+                <label for="firstName" th:text="#{registration.user.page.firstname}"></label>
+                <input type="text" th:field="*{firstName}" class="form-control" id="firstName"
+                       name="firstName">
+                <p class="small alert alert-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
+            </div>
+            <div class="col-md-4">
+                <label for="lastName" th:text="#{registration.user.page.lastname}"></label>
+                <input type="text" th:field="*{lastName}" class="form-control" id="lastName"
+                       name="lastName">
+                <p class="small alert alert-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p>
+            </div>
         </div>
-    </div>
+        <div class="form-row">
+            <div class="col-md-4">
+                <label for="country" th:text="#{registration.user.page.country}"></label>
+                <input type="text" th:field="*{country}" class="form-control" id="country"
+                       name="country">
+                <p class="small alert alert-danger" th:if="${#fields.hasErrors('country')}" th:errors="*{country}"></p>
+            </div>
+            <div class="col-md-4">
+                <label for="city" th:text="#{registration.user.page.city}"></label>
+                <input type="text" th:field="*{city}" class="form-control" id="city"
+                       name="city">
+                <p class="small alert alert-danger" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></p>
+            </div>
+            <div class="col-md-4">
+                <label for="postal" th:text="#{registration.user.page.postal}"></label>
+                <input type="text" th:field="*{postal}" class="form-control" id="postal"
+                       name="postal">
+                <p class="small alert alert-danger" th:if="${#fields.hasErrors('postal')}" th:errors="*{postal}"></p>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-4">
+                <label for="street" th:text="#{registration.user.page.street}"></label>
+                <input type="text" th:field="*{street}" class="form-control" id="street"
+                       name="street">
+                <p class="small alert alert-danger" th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></p>
+            </div>
+            <div class="col-md-1">
+                <label for="number" th:text="#{registration.user.page.number}"></label>
+                <input type="text" th:field="*{number}" class="form-control" id="number"
+                       name="number">
+                <p class="small alert alert-danger" th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></p>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-4">
+                <label for="password1" th:text="#{registration.user.page.password}"></label>
+                <input type="password" th:field="*{password1}" class="form-control" id="password1"
+                       name="password1">
+                <p class="small alert alert-danger" th:if="${#fields.hasErrors('password1')}" th:errors="*{password1}"></p>
+            </div>
+            <div class="col-md-4">
+                <label for="password2" th:text="#{registration.user.page.repeatedPassword}"></label>
+                <input type="password" th:field="*{password2}" class="form-control" id="password2"
+                       name="password2">
+                <p class="small alert alert-danger" th:if="${#fields.hasErrors('password2')}" th:errors="*{password2}"></p>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" th:text="#{registration.user.page.register}"></button>
+        <sec:csrfInput/>
+    </form>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

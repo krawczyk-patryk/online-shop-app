@@ -20,5 +20,8 @@ INSERT INTO products(product_id, name, price, type) VALUES
 (19, 'Sunscreen', 15, 'BEAUTY'),
 (20, 'Body luminizer', 20, 'BEAUTY');
 
-INSERT INTO users(user_id, active, first_name, last_name, password, username) VALUES
-(1, true, 'Jan', 'Kowalski', '{bcrypt}$2a$10$0hL5wG5oL7xswitkkwboeejVqLVl9RzVBayU/yqwIDaJ8MhuLs/Cy', 'Jan');
+INSERT INTO addresses(address_id, country, city, postal, street, number) VALUES
+(1, 'Polska', 'Warszawa', '01-201', 'Wolska', '135A');
+
+INSERT INTO users(user_id, username, first_name, last_name, password, active, address_id) VALUES
+(1, 'Jan', 'Janusz', 'Kowalski', '{bcrypt}$2a$10$0hL5wG5oL7xswitkkwboeejVqLVl9RzVBayU/yqwIDaJ8MhuLs/Cy', true, 1);

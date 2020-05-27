@@ -31,4 +31,8 @@ public class User {
 
     @Column(nullable = false)
     private Boolean active = false;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id")
+    private Address address;
 }
