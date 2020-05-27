@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @NoArgsConstructor
@@ -15,23 +14,24 @@ import javax.validation.constraints.Size;
 @Setter
 public class UserDto {
 
-    @NotBlank
-    @Size(min = 2, max = 30, message = "U")
+    @NotBlank(message = "{field.cannot.beBlank}")
+    @Size(min = 2, max = 30, message = "{userdto.username.size}")
     private String username;
 
-    @NotBlank
-    @Size(min = 2, max = 50)
+    @NotBlank(message = "{field.cannot.beBlank}")
+    @Size(min = 2, max = 30, message = "{userdto.password.size}")
     private String password1;
 
-    @Size(min = 2, max = 50)
+    @NotBlank(message = "{field.cannot.beBlank}")
+    @Size(min = 2, max = 30, message = "{userdto.password.size}")
     private String password2;
 
-    @NotBlank
-    @Size(min = 2, max = 30)
+    @NotBlank(message = "{field.cannot.beBlank}")
+    @Size(min = 2, max = 30, message = "{userdto.firstName.size}")
     private String firstName;
 
-    @NotBlank
-    @Size(min = 2, max = 30)
+    @NotBlank(message = "{field.cannot.beBlank}")
+    @Size(min = 2, max = 30, message = "{userdto.lastName.size}")
     private String lastName;
 
     private Boolean active = false;
