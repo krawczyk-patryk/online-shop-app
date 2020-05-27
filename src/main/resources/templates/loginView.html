@@ -15,16 +15,16 @@
             <h1 th:text="#{login.page.desc}"></h1>
             <form th:action="@{/login}" method="post">
                 <div class="form-group">
-                    <label for="username" th:text="#{user.login.page.label.username}"></label>
+                    <label for="username" th:text="#{login.user.page.label.username}"></label>
                     <input type="text" class="form-control" id="username"
-                           placeholder="Enter username" name="username">
+                           name="username">
                 </div>
                 <div class="form-group">
-                    <label for="password" th:text="#{user.login.page.label.password}"></label>
+                    <label for="password" th:text="#{login.user.page.label.password}"></label>
                     <input type="password" class="form-control" id="password"
-                           placeholder="Enter password" name="password">
+                           name="password">
                 </div>
-                <button class="btn btn-primary" type="submit">Zarejestruj</button>
+                <button class="btn btn-primary" type="submit" th:text="#{login.user.page.label.confirm}"></button>
             </form>
         </div>
     </div>

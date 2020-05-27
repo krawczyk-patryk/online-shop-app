@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Products List</title>
+    <title th:text="#{products.page.title}"></title>
 </head>
 <body>
 <div th:include="nav.html"></div>
 <table class="table">
     <thead>
     <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Name</th>
-        <th scope="col">Price</th>
-        <th scope="col">Type</th>
+        <th scope="col" th:text="#{products.page.list.id}"></th>
+        <th scope="col" th:text="#{products.page.list.name}"></th>
+        <th scope="col" th:text="#{products.page.list.price}" ></th>
+        <th scope="col" th:text="#{products.page.list.type}"></th>
     </tr>
     </thead>
     <tbody>
@@ -23,8 +23,8 @@
         <td th:text="${product.name}"></td>
         <td th:text="${product.price}">
         <td th:text="${product.type}"></td>
-        <td><span><a th:href="@{/product(id=${product.id})}">Edit</a></span></td>
-        <td><span><a th:href="@{/product/delete(id=${product.id})}">Delete</a></span></td>
+        <td><span><a th:href="@{/product(id=${product.id})}" th:text="#{products.page.list.edit}"></a></span></td>
+        <td><span><a th:href="@{/product/delete(id=${product.id})}" th:text="#{products.page.list.delete}"></a></span></td>
     </tr>
     </tbody>
 </table>

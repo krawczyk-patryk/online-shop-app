@@ -16,46 +16,46 @@
             <h1 th:text="#{registration.user.page.description}"></h1>
             <form th:action="@{/register}" th:object="${userModel}" method="post">
                 <div class="form-group">
-                    <label for="username">Username</label>
+                    <label for="username" th:text="#{registration.user.page.username}"></label>
                     <input type="text" th:field="*{username}" class="form-control" id="username"
-                           placeholder="Enter username" name="username" minlength="2" maxlength="30" required>
+                           name="username" minlength="2" maxlength="30" required>
                 </div>
                 <ul>
                     <li th:each="err : ${#fields.errors('username')}" th:text="${err}"></li>
                 </ul>
                 <div class="form-group">
-                    <label for="firstName">First name</label>
+                    <label for="firstName" th:text="#{registration.user.page.firstname}"></label>
                     <input type="text" th:field="*{firstName}" class="form-control" id="firstName"
-                           placeholder="Enter first name" minlength="2" maxlength="30" required>
+                           minlength="2" maxlength="30" required>
                 </div>
                 <ul>
                     <li th:each="err : ${#fields.errors('firstName')}" th:text="${err}"></li>
                 </ul>
                 <div class="form-group">
-                    <label for="lastName">Last name</label>
+                    <label for="lastName" th:text="#{registration.user.page.lastname}"></label>
                     <input type="text" th:field="*{lastName}" class="form-control" id="lastName"
-                           placeholder="Enter last name" minlength="2" maxlength="30" required>
+                           minlength="2" maxlength="30" required>
                 </div>
                 <ul>
                     <li th:each="err : ${#fields.errors('firstName')}" th:text="${err}"></li>
                 </ul>
                 <div class="form-group">
-                    <label for="password1">Password</label>
+                    <label for="password1" th:text="#{registration.user.page.password}"></label>
                     <input type="password" th:field="*{password1}" class="form-control" id="password1"
-                           placeholder="Enter password" minlength="2" maxlength="50" required>
+                           minlength="2" maxlength="50" required>
                 </div>
                 <ul>
                     <li th:each="err : ${#fields.errors('password1')}" th:text="${err}"></li>
                 </ul>
                 <div class="form-group">
-                    <label for="password2">Repeat password</label>
+                    <label for="password2" th:text="#{registration.user.page.repeatedpassword}"></label>
                     <input type="password" th:field="*{password2}" class="form-control" id="password2"
-                           placeholder="Repeat password" minlength="2" maxlength="50" required>
+                           minlength="2" maxlength="50" required>
                 </div>
                 <ul>
                     <li th:each="err : ${#fields.errors('password2')}" th:text="${err}"></li>
                 </ul>
-                <button class="btn btn-primary" type="submit">Zarejestruj</button>
+                <button class="btn btn-primary" type="submit" th:text="#{registration.user.page.register}"></button>
                 <sec:csrfInput/>
             </form>
         </div>

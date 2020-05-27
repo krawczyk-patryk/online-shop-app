@@ -31,19 +31,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .headers().frameOptions().disable().and()
-                .csrf().disable()
+                .headers()
+                    .frameOptions().disable()
+                .and()
+                    .csrf().disable()
                 .authorizeRequests()
                     .antMatchers("/","/h2-console/**","/register","/login").permitAll()
                     .anyRequest().authenticated()
                     .and()
                 .formLogin()
                     .loginPage("/login")
-                    .defaultSuccessUrl("/.html")
+                    .defaultSuccessUrl("/")
                     .failureForwardUrl("/login.html?error=true")
                 .and()
                     .logout()
-                    .logoutSuccessUrl("/.html");
+                    .logoutSuccessUrl("/");
     }
 
     @Override
