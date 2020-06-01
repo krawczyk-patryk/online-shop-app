@@ -23,5 +23,5 @@ INSERT INTO products(product_id, name, price, type) VALUES
 INSERT INTO addresses(address_id, country, city, postal, street, number) VALUES
 (1, 'Polska', 'Warszawa', '01-201', 'Wolska', '135A');
 
-INSERT INTO users(user_id, username, first_name, last_name, password, active, address_id) VALUES
-(1, 'Jan', 'Janusz', 'Kowalski', '{bcrypt}$2a$10$0hL5wG5oL7xswitkkwboeejVqLVl9RzVBayU/yqwIDaJ8MhuLs/Cy', true, 1);
+INSERT INTO users(user_id, username, first_name, last_name, email, password, active, address_id) VALUES
+(1, 'Jan', 'Janusz', 'Kowalski', 'JanKowal@example.pl', '{bcrypt}$2a$10$0hL5wG5oL7xswitkkwboeejVqLVl9RzVBayU/yqwIDaJ8MhuLs/Cy', true, 1);

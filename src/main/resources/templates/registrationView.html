@@ -69,6 +69,12 @@
         </div>
         <div class="form-row">
             <div class="col-md-4">
+                <label for="email" th:text="#{registration.user.page.email}"></label>
+                <input type="text" th:field="*{email}" class="form-control" id="email"
+                       name="email">
+                <p class="small alert alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+            </div>
+            <div class="col-md-4">
                 <label for="password1" th:text="#{registration.user.page.password}"></label>
                 <input type="password" th:field="*{password1}" class="form-control" id="password1"
                        name="password1">

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import pl.krawczykpatryk.onlineshop.validators.ValidEmail;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -26,6 +27,10 @@ public class UserDto {
     @NotBlank(message = "{field.cannot.beBlank}")
     @Size(min = 2, max = 30, message = "{userDto.password.size}")
     private String password2;
+
+    @NotBlank(message = "{field.cannot.beBlank}")
+    @ValidEmail
+    private String email;
 
     @NotBlank(message = "{field.cannot.beBlank}")
     @Size(min = 2, max = 30, message = "{userDto.firstName.size}")

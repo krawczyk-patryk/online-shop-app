@@ -17,6 +17,7 @@ public class UserConverter implements Function<UserDto, User> {
                 .firstName(userDto.getFirstName())
                 .lastName(userDto.getLastName())
                 .password(userDto.getPassword1())
+                .email(userDto.getEmail())
                 .address(Address.builder()
                         .country(userDto.getCountry())
                         .city(userDto.getCity())
