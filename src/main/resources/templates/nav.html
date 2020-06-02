@@ -3,6 +3,9 @@
         <a class="navbar-brand">SHOP</a>
         <a class="nav-item nav-link" href="/register" th:text="#{nav.label.register}"></a>
         <a class="nav-item nav-link" href="/login" th:text="#{nav.label.login}"></a>
+        <div sec:authorize="isAuthenticated()">
+            <a class="nav-item nav-link" href="/perform_logout" th:text="#{nav.label.logout}"></a>
+        </div>
         <a class="nav-item nav-link" href="/" th:text="#{nav.label.products}"></a>
         <a class="nav-item nav-link" href="/product/add" th:text="#{nav.label.addproduct}"></a>
     </div>
