@@ -3,10 +3,13 @@
         <a class="navbar-brand">SHOP</a>
         <a class="nav-item nav-link" href="/register" th:text="#{nav.label.register}"></a>
         <a class="nav-item nav-link" href="/login" th:text="#{nav.label.login}"></a>
-        <div sec:authorize="isAuthenticated()">
-            <a class="nav-item nav-link" href="/perform_logout" th:text="#{nav.label.logout}"></a>
-        </div>
         <a class="nav-item nav-link" href="/" th:text="#{nav.label.products}"></a>
         <a class="nav-item nav-link" href="/product/add" th:text="#{nav.label.addproduct}"></a>
+    </div>
+    <div s="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd">
+        <div class="collapse navbar-collapse" sec:authorize="isAuthenticated()">
+        <span class="nav-item nav-link" sec:authentication="name"></span>
+        <span class="nav-item nav-link" sec:authentication="principal.authorities"></span>
+        <a class="nav-item nav-link" href="/perform_logout" th:text="#{nav.label.logout}"></a>
     </div>
 </nav>

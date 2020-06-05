@@ -21,7 +21,13 @@ INSERT INTO products(product_id, name, price, type) VALUES
 (20, 'Body luminizer', 20, 'BEAUTY');
 
 INSERT INTO addresses(address_id, country, city, postal, street, number) VALUES
-(1, 'Polska', 'Warszawa', '01-201', 'Wolska', '135A');
+(1, 'Polska', 'Warszawa', '01-201', 'Wolska', '135A'),
+(2, 'Polska', 'Poznań', '61-080', 'Miejska', '14/2');
 
-INSERT INTO users(user_id, username, first_name, last_name, email, password, active, address_id) VALUES
-(1, 'Jan', 'Janusz', 'Kowalski', 'JanKowal@example.pl', '{bcrypt}$2a$10$0hL5wG5oL7xswitkkwboeejVqLVl9RzVBayU/yqwIDaJ8MhuLs/Cy', true, 1);
+INSERT INTO roles(role_id, username, role) VALUES
+(1, 'Jan', 'ROLE_USER'),
+(2, 'Piotr', 'ROLE_ADMIN');
+
+INSERT INTO users(user_id, username, first_name, last_name, email, password, active, address_id, role_id) VALUES
+(1, 'Jan', 'Janusz', 'Kowalski', 'jankowalski@example.pl', '{bcrypt}$2a$10$0hL5wG5oL7xswitkkwboeejVqLVl9RzVBayU/yqwIDaJ8MhuLs/Cy', true, 1, 1),
+(2, 'Piotr', 'Piotr', 'Mazurek', 'piotrmazurek@example.pl', '{bcrypt}$2a$10$0hL5wG5oL7xswitkkwboeejVqLVl9RzVBayU/yqwIDaJ8MhuLs/Cy', true, 2, 2);
